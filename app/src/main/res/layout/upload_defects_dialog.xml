@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@drawable/dialog_bg"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="10dp"
+        android:paddingTop="20dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Large"
+            android:textColor="#000000"
+            android:fontFamily="@font/poppins_medium"
+            android:layout_gravity="center_horizontal"
+            android:text="Upload Defects"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+            android:textColor="@color/gray"
+            android:layout_marginTop="8dp"
+            android:layout_gravity="center_horizontal"
+            android:text="Please capture this article defects"/>
+
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/til_phone"
+            android:layout_below="@+id/til_salary"
+            android:layout_margin="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <android.support.design.widget.TextInputEditText
+                android:id="@+id/ed_email"
+                android:focusable="false"
+                android:hint="Upload Image"
+                android:paddingBottom="10dp"
+                android:drawableRight="@drawable/ic_gal"
+                android:fontFamily="@font/poppins_regular"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:id="@+id/rc_image"
+            android:layout_height="wrap_content"
+            ></android.support.v7.widget.RecyclerView>
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:weightSum="2"
+        android:layout_below="@+id/content"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/cancel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+            android:textColor="@color/gray"
+            android:gravity="center"
+            android:padding="15dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/poppins_medium"
+            android:layout_gravity="center_horizontal"
+            android:text="CANCEL"/>
+
+        <TextView
+            android:id="@+id/ok"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/Base.TextAppearance.AppCompat.Medium"
+            android:textColor="@color/colorPrimaryDark"
+            android:layout_weight="1"
+            android:fontFamily="@font/poppins_medium"
+            android:gravity="center"
+            android:padding="15dp"
+            android:layout_gravity="center_horizontal"
+            android:text="SUBMIT"/>
+
+    </LinearLayout>
+
+</RelativeLayout>

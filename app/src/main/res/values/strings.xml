@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">VKC Official</string>
+    <string name="welcome">Hi, \nWelcome back!</string>
+    <string name="backtosignin">Back to <font color="#ba8f58">Sign In</font></string>
+    <string name="forgothelp">We can help you reset your password using your VKC email address linked to your account.</string>
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+    <string name="Please_enter_email">Please Enter Email Address</string>
+    <string name="Please_Enter_Valid_Email">Please Enter Valid Email</string>
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_tools">Tools</string>
+    <string name="menu_share">Share</string>
+    <string name="menu_send">Send</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="otp">Please enter 4 digit verification code that you received via email</string>
+    <string name="New_password">New Password</string>
+    <string name="CONFIRM_PASSWORD">Confirm Password</string>
+    <string name="Reset_Password">Reset Password</string>
+
+</resources>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single"
+        android:id="@+id/grp1">
+        <item
+            android:id="@+id/nav_po"
+            android:title="VENDORS" />
+    </group>
+    <group android:checkableBehavior="single"
+        android:id="@+id/grp2">
+        <item
+            android:id="@+id/na_complete"
+            android:title="COMPLETED PO" />
+    </group>
+    <group android:checkableBehavior="single"
+        android:id="@+id/grp3">
+        <item
+            android:id="@+id/viewdefects"
+            android:title="VIEW DEFECTS" />
+    </group>
+    <group android:checkableBehavior="single"
+        android:id="@+id/grp4">
+        <item
+            android:id="@+id/report"
+            android:title="REPORT" />
+    </group> <group android:checkableBehavior="single"
+    android:id="@+id/grp5">
+    <item
+        android:id="@+id/nav_noti"
+        android:title="NOTIFICATIONS" />
+</group>
+    <group android:checkableBehavior="single"
+        android:id="@+id/grp6">
+        <item
+            android:id="@+id/nav_logout"
+            android:title="LOGOUT" />
+    </group>
+
+
+
+
+</menu>

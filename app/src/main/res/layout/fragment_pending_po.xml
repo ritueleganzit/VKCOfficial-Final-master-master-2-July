@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment.PendingPOFragment">
+    <android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:elevation="0dp"
+        app:contentInsetEnd="0dp"
+        app:contentInsetLeft="0dp"
+
+android:background="@color/colorPrimaryDark"
+        app:contentInsetRight="0dp"
+        app:contentInsetStart="0dp"
+        app:theme="@style/CustomActionBar">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
+
+            <ImageView
+                android:id="@+id/back"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/ic_arrow"
+                android:scaleType="centerInside" />
+
+            <TextView
+                android:id="@+id/textTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_centerVertical="true"
+                android:fontFamily="@font/poppins_regular"
+                android:gravity="center"
+
+                android:text="PENDING PO"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="#ffffff" />
+
+
+            <RelativeLayout
+                android:id="@+id/notification"
+                android:layout_width="60dp"
+                android:gravity="end"
+                android:layout_alignParentRight="true"
+                android:layout_height="60dp"
+                android:layout_toLeftOf="@+id/chat"
+                android:layout_centerVertical="true">
+
+                <ImageView
+                    android:layout_alignParentRight="true"
+                    android:id="@+id/notification_bell"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+
+                    android:layout_centerVertical="true"
+                    />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:singleLine="true"
+                    android:ellipsize="end"
+                    android:maxWidth="15dp"
+                    android:layout_margin="14dp"
+                    android:textSize="10sp"
+                    android:layout_alignParentRight="true"
+                    android:gravity="center"
+                    android:scaleType="centerInside"
+                    android:textColor="#fff"/>
+
+            </RelativeLayout>
+
+
+        </RelativeLayout>
+
+
+    </android.support.v7.widget.Toolbar>
+
+    <!-- TODO: Update blank fragment layout -->
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:id="@+id/rc_pendingpo"
+        android:layout_below="@+id/toolbar"
+        android:layout_height="match_parent"
+        android:text="@string/hello_blank_fragment" />
+    <include layout="@layout/nodata"
+        android:layout_gravity="center"
+        android:layout_centerInParent="true"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"></include>
+</RelativeLayout>

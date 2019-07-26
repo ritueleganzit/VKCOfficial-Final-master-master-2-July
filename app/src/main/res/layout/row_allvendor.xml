@@ -1,0 +1,89 @@
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cardview"
+    android:layout_below="@+id/toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="5dp"
+    android:layout_marginRight="5dp"
+    app:cardBackgroundColor="#ffffff"
+    app:cardCornerRadius="5dp"
+    app:cardElevation="5dp"
+
+    app:cardUseCompatPadding="true">
+
+
+
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+            <TableLayout
+                android:layout_centerVertical="true"
+                android:paddingTop="5dp"
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:gravity="center_vertical"
+                android:layout_height="wrap_content"
+                android:layout_toLeftOf="@+id/lin_profile"
+                android:padding="10dp"
+                >
+
+                <TableRow android:layout_marginBottom="5dp">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="50"
+                        android:text="Vendor Name"
+                        android:fontFamily="@font/poppins_regular"
+
+                       android:gravity="center_vertical"
+                        />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_weight="50"
+                        android:textColor="@color/black"
+                        android:gravity="start"
+                        android:id="@+id/vendor_name"
+                        android:fontFamily="@font/poppins_regular"
+                        android:text=""
+                        />
+
+
+                </TableRow>
+
+
+
+
+            </TableLayout>
+
+
+
+            <com.eleganzit.vkcofficial.util.VerticalTextView
+                android:id="@+id/txtRegister"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:rotation="180"
+                android:text=""
+                android:textAllCaps="true"
+                android:textSize="12sp"
+                android:background="@color/colorPrimaryDark"
+                android:textColor="#FFFFFF"
+                android:visibility="visible" />
+
+
+        </LinearLayout>
+
+
+    </FrameLayout>
+
+</android.support.v7.widget.CardView>

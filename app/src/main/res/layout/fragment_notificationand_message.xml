@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".fragment.NotificationandMessage">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+
+        android:layout_height="match_parent"
+       >
+
+        <LinearLayout
+            android:id="@+id/tablayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:weightSum="2">
+
+            <TextView
+                android:id="@+id/notifications"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/transparent_bg"
+                android:fontFamily="@font/poppins_medium"
+                android:gravity="center"
+                android:paddingTop="4dp"
+                android:paddingBottom="3dp"
+
+                android:text="Notification"
+
+                android:textColor="#ffffff" />
+
+            <TextView
+                android:id="@+id/messages"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:layout_weight="1"
+                android:background="@drawable/transparent_bg"
+
+                android:fontFamily="@font/poppins_medium"
+
+                android:gravity="center"
+                android:paddingTop="4dp"
+                android:paddingBottom="3dp"
+
+
+                android:text="Messages"
+
+
+                android:textColor="#ffffff" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:id="@+id/containers"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/tablayout">
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+</LinearLayout>

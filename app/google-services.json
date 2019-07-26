@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "432554431747",
+    "firebase_url": "https://vkcofficial-8a0f4.firebaseio.com",
+    "project_id": "vkcofficial-8a0f4",
+    "storage_bucket": "vkcofficial-8a0f4.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:432554431747:android:106fe0c8c1b6a00b",
+        "android_client_info": {
+          "package_name": "com.eleganzit.vkcofficial"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "432554431747-0g13vjgh0icptsp2jtm0djpgt84osiu6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.eleganzit.vkcofficial",
+            "certificate_hash": "f579f018892b5f0e76247f4b702f4565ce000767"
+          }
+        },
+        {
+          "client_id": "432554431747-s0ehpbeu9oq0ueilig0a48gdbhi512e8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAf4W5XB9668Zdnp2D6W2cC7A0yZ7tHimI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "432554431747-s0ehpbeu9oq0ueilig0a48gdbhi512e8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

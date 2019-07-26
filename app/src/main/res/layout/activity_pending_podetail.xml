@@ -1,0 +1,329 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/bg"
+    android:layout_height="match_parent"
+    android:focusableInTouchMode="true"
+    tools:context=".LoginActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_marginTop="-10dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/bgd"></ImageView>
+
+    <android.support.v7.widget.Toolbar xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:elevation="0dp"
+        app:contentInsetEnd="0dp"
+        app:contentInsetLeft="0dp"
+
+        app:contentInsetRight="0dp"
+        app:contentInsetStart="0dp"
+        app:theme="@style/CustomActionBar">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+
+            android:layout_height="wrap_content"
+            android:layout_gravity="center">
+
+            <ImageView
+                android:id="@+id/back"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/ic_arrow"
+                android:scaleType="centerInside" />
+
+            <TextView
+                android:id="@+id/textTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_centerVertical="true"
+                android:fontFamily="@font/poppins_regular"
+                android:gravity="center"
+
+                android:text="PENDING PO"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:textColor="#ffffff" />
+
+
+            <RelativeLayout
+                android:id="@+id/notification"
+                android:layout_width="60dp"
+                android:gravity="end"
+                android:layout_alignParentRight="true"
+                android:layout_height="60dp"
+                android:layout_toLeftOf="@+id/chat"
+                android:layout_centerVertical="true">
+
+                <ImageView
+                    android:layout_alignParentRight="true"
+                    android:id="@+id/notification_bell"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+
+                    android:layout_centerVertical="true"
+                    />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:singleLine="true"
+                    android:ellipsize="end"
+                    android:maxWidth="15dp"
+                    android:layout_margin="14dp"
+                    android:textSize="10sp"
+                    android:layout_alignParentRight="true"
+                    android:gravity="center"
+                    android:scaleType="centerInside"
+                    android:textColor="#fff"/>
+
+            </RelativeLayout>
+
+
+        </RelativeLayout>
+
+
+    </android.support.v7.widget.Toolbar>
+
+   <android.support.v4.widget.NestedScrollView
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:fillViewport="true"
+       android:id="@+id/nested"
+       android:layout_marginBottom="?attr/actionBarSize"
+
+       android:layout_below="@+id/toolbar">
+
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           android:orientation="vertical">
+           <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+               xmlns:app="http://schemas.android.com/apk/res-auto"
+               android:id="@+id/cardview"
+               android:layout_below="@+id/toolbar"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:layout_marginLeft="5dp"
+               android:layout_marginRight="5dp"
+               app:cardBackgroundColor="#ffffff"
+               app:cardCornerRadius="5dp"
+               app:cardElevation="5dp"
+
+               app:cardUseCompatPadding="true">
+
+
+
+               <FrameLayout
+                   android:layout_width="fill_parent"
+                   android:layout_height="wrap_content">
+
+                   <LinearLayout
+                       android:padding="10dp"
+                       android:orientation="horizontal"
+                       android:gravity="center_vertical"
+                       android:layout_width="fill_parent"
+                       android:layout_height="wrap_content">
+
+                       <TableLayout
+                           android:layout_centerVertical="true"
+                           android:paddingTop="5dp"
+                           android:layout_weight="1"
+                           android:layout_width="wrap_content"
+                           android:gravity="center_vertical"
+                           android:layout_height="wrap_content"
+                           android:layout_toLeftOf="@+id/lin_profile"
+                           android:padding="5dp"
+                           >
+
+                           <TableRow android:layout_marginBottom="5dp">
+
+                               <TextView
+                                   android:layout_width="0dp"
+                                   android:layout_weight="50"
+                                   android:text="PO Number"
+                                   android:fontFamily="@font/poppins_regular"
+
+                                   android:singleLine="true"
+                                   android:ellipsize="end"
+                                   />
+
+                               <TextView
+                                   android:layout_width="0dp"
+                                   android:layout_weight="50"
+                                   android:id="@+id/pur_doc_num"
+                                   android:singleLine="true"
+                                   android:textColor="@color/black"
+                                   android:gravity="end"
+                                   android:fontFamily="@font/poppins_regular"
+                                   android:ellipsize="end"
+                                   />
+
+
+                           </TableRow>
+
+                           <TableRow android:layout_marginBottom="5dp">
+
+                               <TextView
+                                   android:layout_width="0dp"
+                                   android:layout_weight="50"
+                                   android:fontFamily="@font/poppins_regular"
+
+                                   android:text="Article/Line Number"
+                                   android:singleLine="true"
+                                   android:ellipsize="end"
+                                   />
+
+                               <TextView
+                                   android:layout_width="0dp"
+                                   android:layout_weight="50"
+                                   android:gravity="end"
+                                   android:id="@+id/articleline_number"
+                                   android:fontFamily="@font/poppins_regular"
+
+                                   android:textColor="@color/black"
+                                   android:singleLine="true"
+                                   android:ellipsize="end"
+                                   android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+                                   />
+
+
+                           </TableRow> <TableRow android:layout_marginBottom="5dp">
+
+                           <TextView
+                               android:layout_width="0dp"
+                               android:layout_weight="50"
+                               android:fontFamily="@font/poppins_regular"
+
+                               android:text="Employees/Operators"
+                               android:singleLine="true"
+                               android:ellipsize="end"
+                               />
+
+                           <TextView
+                               android:layout_width="0dp"
+                               android:layout_weight="50"
+                               android:gravity="end"
+                               android:id="@+id/number_of_stichers"
+                               android:fontFamily="@font/poppins_regular"
+android:text="-"
+                               android:textColor="@color/black"
+                               android:singleLine="true"
+                               android:ellipsize="end"
+                               android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+                               />
+
+
+                       </TableRow>
+
+
+
+                       </TableLayout>
+
+
+
+
+                   </LinearLayout>
+
+
+               </FrameLayout>
+
+           </android.support.v7.widget.CardView>
+
+           <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+               xmlns:app="http://schemas.android.com/apk/res-auto"
+               android:id="@+id/cardview2"
+               android:layout_below="@+id/cardview"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:layout_marginLeft="5dp"
+               android:layout_marginRight="5dp"
+               app:cardBackgroundColor="#ffffff"
+               app:cardCornerRadius="5dp"
+               app:cardElevation="5dp"
+
+               app:cardUseCompatPadding="true">
+
+               <LinearLayout
+                   android:padding="10dp"
+
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:orientation="vertical">
+                   <TextView
+                       android:layout_marginBottom="10dp"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:fontFamily="@font/poppins_medium"
+                       android:textStyle="bold"
+                       android:id="@+id/startendtime"
+                       android:textColor="@color/black"
+                       android:text="PRODUCTION COMPLETE FROM 9AM TO 3PM."/>
+                   <android.support.v7.widget.RecyclerView
+                       android:id="@+id/rc_production_complete"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content">
+
+                   </android.support.v7.widget.RecyclerView>
+
+                   <include layout="@layout/nodata"
+                       android:layout_gravity="center"
+                       android:layout_height="wrap_content"
+                       android:layout_width="wrap_content"></include>
+               </LinearLayout>
+           </android.support.v7.widget.CardView>
+       </LinearLayout>
+   </android.support.v4.widget.NestedScrollView>
+
+
+    <View
+android:layout_above="@+id/lin"
+        android:layout_width="match_parent"
+        android:layout_height="8dp"
+        android:background="@drawable/top_shadow_gradient" />
+        <LinearLayout
+            android:layout_alignParentBottom="true"
+android:background="#ffffff"
+            android:id="@+id/lin"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center"
+                android:id="@+id/hourly"
+                android:layout_marginLeft="25dp"
+                android:layout_marginRight="25dp"
+                android:padding="8dp"
+                android:background="@drawable/btn_bg"
+                android:layout_gravity="center">
+
+
+                <TextView
+                    android:fontFamily="@font/poppins_medium"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#ffffff"
+                    android:layout_gravity="center"
+                    android:textAppearance="@style/Base.TextAppearance.AppCompat.Small"
+                    android:text="HOURLY PRODUCTION"/>
+
+            </LinearLayout>
+        </LinearLayout>
+</RelativeLayout>
+
+
