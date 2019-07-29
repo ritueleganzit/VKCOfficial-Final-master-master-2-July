@@ -54,7 +54,7 @@ public class CompletedPOActivity extends AppCompatActivity {
     ArrayList<String> imglist=new ArrayList<>();
     LinearLayout hourlyproduction,uploadlinear;
     RecyclerView rc_image;
-
+LinearLayout view_gallery;
     private static final int REQUEST_IMAGE = 2;
     protected static final int REQUEST_STORAGE_READ_ACCESS_PERMISSION = 101;
     protected static final int REQUEST_STORAGE_WRITE_ACCESS_PERMISSION = 102;
@@ -78,6 +78,7 @@ String txt_pur_doc_num,txt_article,txt_doc_date,item;
         progressDialog.setCanceledOnTouchOutside(false);
         rc_production_complete=findViewById(R.id.rc_production_complete);
         hourlyproduction=findViewById(R.id.hourlyproduction);
+        view_gallery=findViewById(R.id.view_gallery);
         pur_doc_num=findViewById(R.id.pur_doc_num);
         doc_date=findViewById(R.id.doc_date);
         article=findViewById(R.id.article);
@@ -101,6 +102,13 @@ String txt_pur_doc_num,txt_article,txt_doc_date,item;
 
                 );
                 overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out);
+            }
+        });
+
+        view_gallery.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(CompletedPOActivity.this, "No Gallery", Toast.LENGTH_SHORT).show();
             }
         });
         uploadlinear.setOnClickListener(new View.OnClickListener() {

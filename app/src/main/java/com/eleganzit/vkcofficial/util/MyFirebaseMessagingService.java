@@ -66,6 +66,8 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
                 .setContentText(text)
 
+        .setStyle(new NotificationCompat.BigTextStyle()
+                .bigText(text))
 
 
                 .setContentTitle("VKC Official")
@@ -127,6 +129,8 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                     .setSmallIcon(getNotificationIcon())//your app icon
 
                     .setBadgeIconType(getNotificationIcon()) //your app icon
+                    .setStyle(new NotificationCompat.BigTextStyle()
+                            .bigText(text))
 
                     .setChannelId(id)
 
