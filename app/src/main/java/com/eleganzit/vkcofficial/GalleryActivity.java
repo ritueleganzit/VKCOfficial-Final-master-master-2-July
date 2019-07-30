@@ -29,13 +29,29 @@ public class GalleryActivity extends AppCompatActivity {
         your_rv_2.setTag(1);
         ArrayList<String> arrayList1=new ArrayList<>();
 
-       arrayList1=getIntent().getStringArrayListExtra("imagegal");
-        your_rv_2.setAdapter(new rcAdapter2(arrayList1,this));
 
-        Glide
-                .with(GalleryActivity.this)
-                .load(arrayList1.get(0))
-                .into(full_image);
+       if (getIntent().getStringArrayListExtra("imagecomplete")!=null)
+       {
+           arrayList1=getIntent().getStringArrayListExtra("imagecomplete");
+           your_rv_2.setAdapter(new rcAdapter2(arrayList1,this));
+           Glide
+                   .with(GalleryActivity.this)
+                   .load("http://itechgaints.com/VKC-API/user_uploads/"+arrayList1.get(0))
+                   .into(full_image);
+
+       }
+       if (getIntent().getStringArrayListExtra("imagegal")!=null)
+       {
+           arrayList1= getIntent().getStringArrayListExtra("imagegal");
+           your_rv_2.setAdapter(new rcAdapter2(arrayList1,this));
+           Glide
+                   .with(GalleryActivity.this)
+                   .load(arrayList1.get(0))
+                   .into(full_image);
+
+       }
+
+
 
         findViewById(R.id.back).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,20 +93,46 @@ onBackPressed();
         @Override
         public void onBindViewHolder(@NonNull final MyViewHolder myViewHolder, final int i) {
 
+            if (arrayList.get(i).contains("http"))
+            {
+                Glide
+                        .with(context)
+                        .load(arrayList.get(i))
+                        .into(myViewHolder.img2);
+            }
+            else
+            {
+                Glide
+                        .with(context)
+                        .load("http://itechgaints.com/VKC-API/user_uploads/"+arrayList.get(i))
+                        .into(myViewHolder.img2);
+
+            }
 
 
-            Glide
-                    .with(context)
-                    .load(arrayList.get(i))
-                    .into(myViewHolder.img2);
+
 
 myViewHolder.img2.setOnClickListener(new View.OnClickListener() {
     @Override
     public void onClick(View v) {
-        Glide
-                .with(context)
-                .load(arrayList.get(i))
-                .into(full_image);
+
+        if (arrayList.get(i).contains("http"))
+        {
+            Glide
+                    .with(context)
+                    .load(arrayList.get(i))
+                    .into(full_image);
+
+        }
+        else
+        {
+            Glide
+                    .with(context)
+                    .load("http://itechgaints.com/VKC-API/user_uploads/"+arrayList.get(i))
+                    .into(full_image);
+
+        }
+
     }
 });
 

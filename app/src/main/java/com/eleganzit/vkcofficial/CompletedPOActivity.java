@@ -35,6 +35,8 @@ import com.eleganzit.vkcofficial.api.RetrofitAPI;
 import com.eleganzit.vkcofficial.api.RetrofitInterface;
 import com.eleganzit.vkcofficial.api.uploadMultupleImage.CallAPiActivity;
 import com.eleganzit.vkcofficial.api.uploadMultupleImage.GetResponse;
+import com.eleganzit.vkcofficial.model.ArticleWiseDefectResponse;
+import com.eleganzit.vkcofficial.model.MarkPOCompleteResponse;
 import com.eleganzit.vkcofficial.model.p_grid.PendingPoGridResponse;
 
 import org.json.JSONException;
@@ -67,6 +69,8 @@ String txt_pur_doc_num,txt_article,txt_doc_date,item;
     ProgressDialog progressDialog;
     ArrayList<String> str_photo_array=new ArrayList<>();
     private String mediapath;
+    ArrayList<String> imagelist;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -108,7 +112,8 @@ String txt_pur_doc_num,txt_article,txt_doc_date,item;
         view_gallery.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(CompletedPOActivity.this, "No Gallery", Toast.LENGTH_SHORT).show();
+
+                viewdefectsgal();//Toast.makeText(CompletedPOActivity.this, "No Gallery", Toast.LENGTH_SHORT).show();
             }
         });
         uploadlinear.setOnClickListener(new View.OnClickListener() {
@@ -240,6 +245,55 @@ getPOGridDetails();
         });
 
     }
+
+
+    private void viewdefectsgal() {
+        imagelist=new ArrayList<>();
+        progressDialog.show();
+        RetrofitInterface myInterface = RetrofitAPI.getRetrofit().create(RetrofitInterface.class);
+        Call<MarkPOCompleteResponse> call=myInterface.completePoImage(pur_doc_num.getText().toString());
+        call.enqueue(new Callback<MarkPOCompleteResponse>() {
+            @Override
+            public void onResponse(Call<MarkPOCompleteResponse> call, Response<MarkPOCompleteResponse> response) {
+                if (response.isSuccessful())
+                {
+                    progressDialog.dismiss();
+                    if(response.body().getData()!=null)
+                    {
+                        for (int i=0;i<response.body().getData().size();i++)
+                        {
+                            imagelist.add(response.body().getData().get(i).getImage());
+                        }
+
+                        Log.d("ffffffffffff",""+response.body().getData());
+                        if (imagelist.size()>0) {
+                            startActivity(new Intent(CompletedPOActivity.this, GalleryActivity.class)
+                                    .putExtra("imagecomplete", imagelist));
+                        }
+                    }
+                    {
+                        // Toast.makeText(CompletedPOActivity.this, "No Imagespppp"+response.body().getData().size(), Toast.LENGTH_SHORT).show();
+
+                    }
+                }
+                else
+                {
+                    Toast.makeText(CompletedPOActivity.this, "No Images", Toast.LENGTH_SHORT).show();
+                    progressDialog.dismiss();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<MarkPOCompleteResponse> call, Throwable t) {
+                progressDialog.dismiss();
+                Toast.makeText(CompletedPOActivity.this, "Server or Internet Error", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+
+
+    }
     @Override
     public void onBackPressed() {
         super.onBackPressed();
@@ -269,7 +323,7 @@ getPOGridDetails();
                     Toast.makeText(CompletedPOActivity.this, "Successfully updated", Toast.LENGTH_SHORT).show();
                     //PlanFragment myPhotosFragment = new PlanFragment();
 /*
-                    getActivity().getSupportFragmentManager().beginTransaction()
+                    CompletedPOActivity.this.getSupportFragmentManager().beginTransaction()
                             .replace(R.id.container, myPhotosFragment, "TAG")
                             .commit();*/
                 }

@@ -18,7 +18,9 @@ import com.eleganzit.vkcofficial.api.RetrofitAPI;
 import com.eleganzit.vkcofficial.api.RetrofitInterface;
 import com.eleganzit.vkcofficial.model.LoginResponse;
 import com.eleganzit.vkcofficial.util.UserLoggedInSession;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.iid.InstanceIdResult;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -66,7 +68,14 @@ public class LoginActivity extends AppCompatActivity {
                         Thread t=new Thread(new Runnable() {
                             @Override
                             public void run() {
-                                Token= FirebaseInstanceId.getInstance().getToken();
+                                FirebaseInstanceId.getInstance().getInstanceId().addOnSuccessListener( LoginActivity.this,  new OnSuccessListener<InstanceIdResult>() {
+                                    @Override
+                                    public void onSuccess(InstanceIdResult instanceIdResult) {
+                                        Token = instanceIdResult.getToken();
+                                        device_token=Token;
+                                        Log.e("get token",Token);
+                                    }
+                                });
                                 if (Token!=null)
                                 {
                                     Log.d("mytokenn", Token);
@@ -116,10 +125,20 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onResume() {
         super.onResume();
+
+
+
         Thread t=new Thread(new Runnable() {
             @Override
             public void run() {
-                Token= FirebaseInstanceId.getInstance().getToken();
+                FirebaseInstanceId.getInstance().getInstanceId().addOnSuccessListener( LoginActivity.this,  new OnSuccessListener<InstanceIdResult>() {
+                    @Override
+                    public void onSuccess(InstanceIdResult instanceIdResult) {
+                        Token = instanceIdResult.getToken();
+                        device_token=Token;
+                        Log.e("get token",Token);
+                    }
+                });
                 if (Token!=null)
                 {
                     Log.d("mytokenn", Token);
@@ -229,4 +248,5 @@ public class LoginActivity extends AppCompatActivity {
 
         return true;
     }
+
 }

@@ -87,7 +87,7 @@ ArrayList<SearchPO> arrayList;
     public CompletedPoFragment() {
         // Required empty public constructor
     }
-    List<String> stateArrayList=new ArrayList();
+    List<String> stateArrayList;
     List<String> stateArrayListnum=new ArrayList();
     TextInputEditText edenddate,edvendor;
     String vendor_id,date;
@@ -753,6 +753,7 @@ d.dismiss();
     }
 
     private void getPOLine() {
+        stateArrayList  =new ArrayList();
         progressDialog.show();
         RetrofitInterface myInterface = RetrofitAPI.getRetrofit().create(RetrofitInterface.class);
         Call<AllPOResponse> call=myInterface.allPoNumber(searchname);

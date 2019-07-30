@@ -8,6 +8,7 @@ import com.eleganzit.vkcofficial.model.AllVendorListResponse;
 import com.eleganzit.vkcofficial.model.ArticleWiseDefectResponse;
 import com.eleganzit.vkcofficial.model.CompletePoNotificationResponse;
 import com.eleganzit.vkcofficial.model.LoginResponse;
+import com.eleganzit.vkcofficial.model.MarkPOCompleteResponse;
 import com.eleganzit.vkcofficial.model.OTPResponse;
 import com.eleganzit.vkcofficial.model.PendingPOResponse;
 import com.eleganzit.vkcofficial.model.ReportResponse;
@@ -169,6 +170,12 @@ public interface RetrofitInterface {
 
             @Field("article") String article,
             @Field("item") String item
+
+    );@FormUrlEncoded
+    @POST("/VKC-API/completePoImage")
+    Call<MarkPOCompleteResponse> completePoImage   (
+
+            @Field("pur_doc_num") String article
 
     );
 

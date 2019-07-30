@@ -5,12 +5,17 @@ import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
+import android.app.TaskStackBuilder;
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.media.RingtoneManager;
 import android.net.Uri;
 import android.os.Build;
 import android.support.v4.app.NotificationCompat;
+import android.text.TextUtils;
 import android.util.Log;
 
 import com.eleganzit.vkcofficial.HomeActivity;
@@ -33,6 +38,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         try {
             jsonObject = new JSONObject(remoteMessage.getData().get("message")+"");
             showNotification1(""+jsonObject.getString("message"));
+          //  sendNotification("VKC Official",""+jsonObject.getString("message"));
 
         } catch (JSONException e) {
             e.printStackTrace();
@@ -104,7 +110,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
             String description = text;
 
-            int importance = NotificationManager.IMPORTANCE_MAX;
+            int importance = NotificationManager.IMPORTANCE_HIGH;
 
             @SuppressLint("WrongConstant") NotificationChannel mChannel = new NotificationChannel(id, name, importance);
 
@@ -166,6 +172,88 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
 
 
 
+    }
+
+    private void sendNotification(String title, String messageBody) {
+      //  Logger.printLog(TAG, messageBody);
+
+        String id = "id_product";
+        Intent intent = new Intent(this, HomeActivity.class);
+
+        if (!TextUtils.isEmpty(title)) {
+            PendingIntent pendingIntent;
+            if (intent != null) {
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                pendingIntent = PendingIntent.getActivity(this, (int) System
+                                .currentTimeMillis() /* Request code */, intent,
+                        PendingIntent.FLAG_ONE_SHOT);
+            } else {
+                pendingIntent = PendingIntent.getActivity(this, (int) System
+                                .currentTimeMillis() /* Request code */, new Intent(),
+                        PendingIntent.FLAG_ONE_SHOT);
+            }
+
+            Bitmap notificationLargeIconBitmap = BitmapFactory.decodeResource(
+                    getResources(), R.drawable.icon_official);
+
+            Uri defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+            NotificationCompat.Builder notificationBuilder;
+            if (pendingIntent != null) {
+                notificationBuilder = new NotificationCompat.Builder(this,
+                        id)
+                        .setSmallIcon(getNotificationIcon())
+                        .setContentTitle(title)
+                        .setContentText(messageBody)
+                        .setLargeIcon(notificationLargeIconBitmap)
+                        .setColor(getResources().getColor(R.color.colorPrimary))
+                        .setStyle(new NotificationCompat.BigTextStyle().bigText(messageBody))
+                        .setAutoCancel(true)
+                        .setSound(defaultSoundUri)
+                        .setContentIntent(pendingIntent);
+            } else {
+                notificationBuilder = new NotificationCompat.Builder(this,
+                        id)
+                        .setSmallIcon(getNotificationIcon())
+                        .setContentTitle(title)
+                        .setContentText(messageBody)
+                        .setLargeIcon(notificationLargeIconBitmap)
+                        .setColor(getResources().getColor(R.color.colorPrimary))
+                        .setStyle(new NotificationCompat.BigTextStyle().bigText(messageBody))
+                        .setAutoCancel(true)
+                        .setSound(defaultSoundUri);
+            }
+
+            NotificationManager notificationManager =
+                    (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+
+			/*if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+				int smallIconViewId = getResources().getIdentifier("ic_push_notification", "id",
+						android.R.class.getPackage().getName());
+
+				if (smallIconViewId != 0) {
+					if (notificationBuilder.build().contentIntent != null) {
+						notificationBuilder.build().contentView.setViewVisibility(smallIconViewId,
+								View.INVISIBLE);
+					}
+
+					if (notificationBuilder.build().headsUpContentView != null) {
+						notificationBuilder.build().headsUpContentView.setViewVisibility
+								(smallIconViewId, View.VISIBLE);
+					}
+
+					if (notificationBuilder.build().bigContentView != null) {
+						notificationBuilder.build().bigContentView.setViewVisibility
+								(smallIconViewId, View.VISIBLE);
+					}
+				}
+			}*/
+            int m = (int) ((new Date().getTime() / 1000L) % Integer.MAX_VALUE);
+
+            if (notificationManager != null) {
+                notificationManager.notify(m, notificationBuilder.build());
+            }
+        }
     }
 
     private int getNotificationIcon () {

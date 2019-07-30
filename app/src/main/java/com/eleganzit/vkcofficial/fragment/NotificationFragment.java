@@ -53,7 +53,7 @@ RecyclerView  rc_notification;
         progressDialog.setCancelable(false);
 
         progressDialog.setCanceledOnTouchOutside(false);
-        RecyclerView.LayoutManager layoutManager=new LinearLayoutManager(getActivity(),LinearLayoutManager.VERTICAL,true);
+        RecyclerView.LayoutManager layoutManager=new LinearLayoutManager(getActivity(),LinearLayoutManager.VERTICAL,false);
         rc_notification.setLayoutManager(layoutManager);
         getNotification();
         return v;

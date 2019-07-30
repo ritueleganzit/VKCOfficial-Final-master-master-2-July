@@ -1,4 +1,19 @@
+buildscript {
+    repositories {
+        maven { url 'https://maven.fabric.io/public' }
+    }
+
+    dependencies {
+        classpath 'io.fabric.tools:gradle:1.+'
+    }
+}
 apply plugin: 'com.android.application'
+apply plugin: 'io.fabric'
+
+repositories {
+    maven { url 'https://maven.fabric.io/public' }
+}
+
 
 android {
     compileSdkVersion 28
@@ -8,7 +23,7 @@ android {
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
-        project.ext.set("archivesBaseName", "VKCOffical-29-07-2019")
+        project.ext.set("archivesBaseName", "VKCOffical-30-07-2019")
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
@@ -41,10 +56,9 @@ dependencies {
     implementation 'me.philio:pinentryview:1.1.0-SNAPSHOT'
     implementation 'com.android.support:support-v4:28.0.0'
     testImplementation 'junit:junit:4.12'
-    implementation 'com.google.firebase:firebase-core:9.2.0'
-    implementation 'com.google.firebase:firebase-auth:9.2.0'
-    implementation 'com.google.firebase:firebase-messaging:9.2.0'
+    implementation 'com.google.firebase:firebase-messaging:17.+'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    implementation 'com.crashlytics.sdk.android:crashlytics:2.10.1'
 }
 apply plugin: 'com.google.gms.google-services'
