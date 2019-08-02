@@ -58,6 +58,7 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                 e.printStackTrace();
             }
             Intent resultIntent = new Intent(getApplicationContext() , HomeActivity.class);
+            resultIntent.putExtra("notification","yes");
             resultIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             PendingIntent pendingIntent = PendingIntent.getActivity(getApplicationContext(),
                     0 /* Request code */, resultIntent,
@@ -71,6 +72,8 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                     .setSmallIcon(getNotificationIcon())
                     .setBadgeIconType(NotificationCompat.BADGE_ICON_SMALL)
                     .setNumber(10)
+                    .setStyle(new NotificationCompat.BigTextStyle().bigText(body))
+.setContentIntent(pendingIntent)
                     .setTicker("VKC")
                     .setContentTitle(title)
                     .setContentText(body)
@@ -90,6 +93,8 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                 e.printStackTrace();
             }
             Intent resultIntent = new Intent(getApplicationContext() , HomeActivity.class);
+            resultIntent.putExtra("notification","yes");
+
             resultIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             PendingIntent pendingIntent = PendingIntent.getActivity(getApplicationContext(),
                     0 /* Request code */, resultIntent,
@@ -100,9 +105,13 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
             notificationBuilder.setAutoCancel(true)
                     .setDefaults(Notification.DEFAULT_ALL)
                     .setWhen(System.currentTimeMillis())
+                    .setStyle(new NotificationCompat.BigTextStyle().bigText(body))
+
                     .setSmallIcon(getNotificationIcon())
                     .setBadgeIconType(NotificationCompat.BADGE_ICON_SMALL)
                     .setNumber(10)
+                    .setContentIntent(pendingIntent)
+
                     .setTicker("VKC")
                     .setContentTitle(title)
                     .setContentText(body)
@@ -153,6 +162,8 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
                 e.printStackTrace();
             }
             Intent resultIntent = new Intent(getApplicationContext(), HomeActivity.class);
+            resultIntent.putExtra("notification","yes");
+
             resultIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             PendingIntent pendingIntent = PendingIntent.getActivity(getApplicationContext(),
                     0 /* Request code */, resultIntent,
@@ -178,6 +189,8 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
             }
             ;
             Intent resultIntent = new Intent(getApplicationContext(), HomeActivity.class);
+            resultIntent.putExtra("notification","yes");
+
             resultIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             PendingIntent pendingIntent = PendingIntent.getActivity(getApplicationContext(),
                     0 /* Request code */, resultIntent,

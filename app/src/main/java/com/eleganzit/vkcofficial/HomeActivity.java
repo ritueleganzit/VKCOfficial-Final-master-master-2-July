@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.GravityCompat;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.util.Log;
 import android.view.MenuItem;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
@@ -31,6 +32,7 @@ public class HomeActivity extends AppCompatActivity
 
   public   static TextView plan,entry,textTitle,tv_defects;
     LinearLayout tablayout;
+    String notification="";
     UserLoggedInSession userLoggedInSession;
     private Fragment fragment = null;
     private FragmentManager fragmentManager;
@@ -42,7 +44,7 @@ public class HomeActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         textTitle=findViewById(R.id.textTitle);
         userLoggedInSession = new UserLoggedInSession(HomeActivity.this);
-
+        notification=getIntent().getStringExtra("notification");
         setSupportActionBar(toolbar);
         getSupportActionBar().setElevation(0);
         toolbar.setOutlineProvider(ViewOutlineProvider.BACKGROUND);
@@ -75,10 +77,27 @@ public class HomeActivity extends AppCompatActivity
     protected void onResume() {
         super.onResume();
         //textTitle.setText("PENDING PO");
-        AllVendorListFragment myPhotosFragment = new AllVendorListFragment();
-        getSupportFragmentManager().beginTransaction()
-                .replace(R.id.container, myPhotosFragment, "TAG")
-                .commit();
+        if (notification!=null && !(notification.isEmpty()))
+        {
+            Log.d("fsfs","0"+notification);
+            if (notification.equalsIgnoreCase("yes"))
+            {
+                NotificationandMessage myPhotosFragment = new NotificationandMessage();
+                getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.container, myPhotosFragment, "TAG")
+                        .commit();
+            }
+        }
+        else
+        {
+            Log.d("fsfs","else");
+
+            AllVendorListFragment myPhotosFragment = new AllVendorListFragment();
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.container, myPhotosFragment, "TAG")
+                    .commit();
+        }
+
     }
     private void displayView(int position) {
         fragment = null;
